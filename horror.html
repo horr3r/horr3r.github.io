@@ -1,2 +1,82 @@
-<h1>Tracking Ip Address..</h1>
-<script>document.body.style.cssText='margin:0;background:#000;width:100vw;height:100vh;overflow:hidden;'; const img=document.createElement('img'); img.src='https://preview.redd.it/can-anyone-tell-me-what-analog-horror-this-anvil-looking-v0-4az463inbl8d1.jpeg?auto=webp&s=3d44828c92c3f012fef5447bbb4bb389719abe55'; img.style.cssText='width:100vw;height:100vh;object-fit:fill;position:fixed;top:0;left:0;'; document.body.innerHTML=''; document.body.appendChild(img); const a=document.createElement('audio'); a.src='https://horr3r.github.io/mp3.mp3'; a.loop=true; a.volume=1; document.body.appendChild(a); a.play(); document.body.requestFullscreen();</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tracking IP Address...</title>
+  <style>
+    * { margin: 0; padding: 0; }
+    body {
+      background: #000;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #bg {
+      width: 100vw;
+      height: 100vh;
+      object-fit: fill;
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 1;
+    }
+    #flash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      opacity: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+    #text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 2em;
+      font-family: monospace;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div id="text">Tracking IP Address...</div>
+  <img id="bg" src="https://preview.redd.it/can-anyone-tell-me-what-analog-horror-this-anvil-looking-v0-4az463inbl8d1.jpeg?auto=webp&s=3d44828c92c3f012fef5447bbb4bb389719abe55">
+  <div id="flash"></div>
+  <audio id="audio" loop>
+    <source src="https://media.memesoundeffects.com/2022/04/The-Caretaker-Its-just-a-burning-memory-Sound-Effect.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const flash = document.getElementById('flash');
+    const audio = document.getElementById('audio');
+
+    // Auto fullscreen on any click/key since browsers require gesture
+    function goFullscreen() {
+      document.documentElement.requestFullscreen().catch(() => {});
+      audio.play().catch(() => {});
+      document.removeEventListener('click', goFullscreen);
+      document.removeEventListener('keydown', goFullscreen);
+    }
+    document.addEventListener('click', goFullscreen);
+    document.addEventListener('keydown', goFullscreen);
+
+    // Also try immediately in case already in a gesture context
+    document.documentElement.requestFullscreen().catch(() => {});
+    audio.play().catch(() => {});
+
+    // Flash effect
+    function doFlash() {
+      flash.style.opacity = '1';
+      setTimeout(() => {
+        flash.style.opacity = '0';
+      }, 100);
+      const next = Math.random() * (700 - 300) + 300;
+      setTimeout(doFlash, next);
+    }
+    doFlash();
+  </script>
+</body>
+</html>
