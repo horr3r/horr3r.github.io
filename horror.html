@@ -34,16 +34,6 @@
       top: 0; left: 0;
       z-index: 1;
     }
-    #flash {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #fff;
-      opacity: 0;
-      z-index: 2;
-      pointer-events: none;
-    }
     #text {
       position: fixed;
       top: 50%;
@@ -60,13 +50,10 @@
   <div id="gate">Click anywhere to continue</div>
   <div id="text">Death</div>
   <img id="bg" src="https://preview.redd.it/can-anyone-tell-me-what-analog-horror-this-anvil-looking-v0-4az463inbl8d1.jpeg?auto=webp&s=3d44828c92c3f012fef5447bbb4bb389719abe55">
-  <div id="flash"></div>
   <audio id="audio" loop>
     <source src="https://media.memesoundeffects.com/2022/04/The-Caretaker-Its-just-a-burning-memory-Sound-Effect.mp3" type="audio/mpeg">
   </audio>
-
   <script>
-    const flash = document.getElementById('flash');
     const audio = document.getElementById('audio');
     const gate = document.getElementById('gate');
 
@@ -78,8 +65,8 @@
     });
 
     function doFlash() {
-      flash.style.opacity = '1';
-      setTimeout(() => { flash.style.opacity = '0'; }, 70);
+      document.body.style.filter = 'invert(1)';
+      setTimeout(() => { document.body.style.filter = 'invert(0)'; }, 70);
       const next = Math.random() * 300 + 100;
       setTimeout(doFlash, next);
     }
