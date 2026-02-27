@@ -48,7 +48,6 @@
 </head>
 <body>
   <div id="gate">Click anywhere to continue</div>
-  <div id="text">Death</div>
   <img id="bg" src="https://preview.redd.it/can-anyone-tell-me-what-analog-horror-this-anvil-looking-v0-4az463inbl8d1.jpeg?auto=webp&s=3d44828c92c3f012fef5447bbb4bb389719abe55">
   <audio id="audio" loop>
     <source src="https://media.memesoundeffects.com/2022/04/The-Caretaker-Its-just-a-burning-memory-Sound-Effect.mp3" type="audio/mpeg">
@@ -67,7 +66,7 @@
     function doFlash() {
       document.body.style.filter = 'invert(1)';
       setTimeout(() => { document.body.style.filter = 'invert(0)'; }, 70);
-      const next = Math.random() * 300 + 100;
+      const next = Math.random() * 200 + 100;
       setTimeout(doFlash, next);
     }
   </script>
